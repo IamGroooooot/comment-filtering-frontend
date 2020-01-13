@@ -20,12 +20,12 @@ public class ReplyManager : MonoBehaviour
                 pos += 66;
             }
             newText += myText.Substring(pos);
-            transform.GetChild(0).GetComponent<Text>().text = newText;
+            transform.GetChild(0).GetComponent<Text>().text = newText + "\n- " + PlayerInfoManager.id + " -"; ;
 
         }
         else
         {
-            transform.GetChild(0).GetComponent<Text>().text = myText;
+            transform.GetChild(0).GetComponent<Text>().text = myText + "\n- " + PlayerInfoManager.id + " -";
         }
 
 
