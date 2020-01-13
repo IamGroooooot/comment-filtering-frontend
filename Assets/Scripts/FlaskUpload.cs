@@ -36,13 +36,14 @@ public class FlaskUpload : MonoBehaviour
             Debug.Log(request.error + ", 에러 코드: " + request.responseCode.ToString());
         }
         else
-        {
+        { // 11.3 
             Debug.Log("Form upload complete!, 결과: " + request.downloadHandler.text+", 크기: "+ request.downloadHandler.text.Length);
-            if(request.downloadHandler.text.Substring(0,1) == "0")
+
+            if (request.downloadHandler.text.Substring(0,1) == "2")
             {
                 isToxic = false;
             }
-            else if(request.downloadHandler.text.Substring(0, 1) == "1")
+            else if(request.downloadHandler.text.Substring(0,1) == "1")
             {
                 isToxic = true;
             }
@@ -52,7 +53,7 @@ public class FlaskUpload : MonoBehaviour
             }
 
             // Debug.Log(request.downloadHandler.text.Length - 2);
-            // swearingPower = System.Convert.ToSingle(request.downloadHandler.text.Substring(1, request.downloadHandler.text.Length-2));
+            swearingPower = System.Convert.ToSingle(request.downloadHandler.text.Substring(0, request.downloadHandler.text.Length-1))-10;
 
 
             isLoaded = true;
