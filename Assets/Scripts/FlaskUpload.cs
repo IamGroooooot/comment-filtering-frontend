@@ -21,10 +21,6 @@ public class FlaskUpload : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(PostRequest(new Comment(1,"I hate you")));
-        }
 
     }
 
