@@ -1,0 +1,31 @@
+fileFormatVersion: 2
+guid: a95f777191e3d53469afefdecedafbfa
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: IBM Plex Sans
+  fontNames:
+  - IBM Plex Sans
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 42891140357124a4aadba0f2be3b91d9, type: 3}
+  - {fileID: 12800000, guid: 94dcbf74b479ef74eb808fe88ba443d3, type: 3}
+  - {fileID: 12800000, guid: 391b7806582b70e42ac65808f02e108f, type: 3}
+  - {fileID: 12800000, guid: 2d483f56d38f83a4c955eb075e81ab4a, type: 3}
+  - {fileID: 12800000, guid: 194d4b99e059d1e45b652db4f337b1eb, type: 3}
+  - {fileID: 12800000, guid: 292e96f96c6a530479b21f3d19ce55f1, type: 3}
+  - {fileID: 12800000, guid: 80d20dabc7f66244e8b06f1e560c51fa, type: 3}
+  - {fileID: 12800000, guid: 067aac7f4559d8548a8c7ab604c59b61, type: 3}
+  - {fileID: 12800000, guid: 95ca078ff11139d4bb5d80d9caf750e4, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
