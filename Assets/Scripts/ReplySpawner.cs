@@ -45,7 +45,7 @@ public class ReplySpawner : MonoBehaviour
         for(int a=0; a< replyParent.transform.childCount; a++)
         {
             child = replyParent.transform.GetChild(a);
-            if (child.GetComponent<ReplyManager>().comment.filterRatio >= ratio)
+            if (child.GetComponent<ReplyManager>().comment.filterRatio > ratio)
             {
                 //Debug.Log(child.GetComponent<ReplyManager>().comment.filterRatio);
                 child.gameObject.SetActive(false);

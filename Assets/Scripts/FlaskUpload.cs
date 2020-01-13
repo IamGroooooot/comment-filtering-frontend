@@ -51,10 +51,16 @@ public class FlaskUpload : MonoBehaviour
             {// Error
                 Debug.Log("NETWORK ERROR");
             }
+            if (isToxic == false)
+            {
+                // Debug.Log(request.downloadHandler.text.Length - 2);
+                swearingPower = 0;
+            }
+            else
+            {
+                swearingPower = System.Convert.ToSingle(request.downloadHandler.text.Substring(0, request.downloadHandler.text.Length - 1)) - 10;
 
-            // Debug.Log(request.downloadHandler.text.Length - 2);
-            swearingPower = System.Convert.ToSingle(request.downloadHandler.text.Substring(0, request.downloadHandler.text.Length-1))-10;
-
+            }
 
             isLoaded = true;
         }
