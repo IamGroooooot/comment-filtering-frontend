@@ -6,6 +6,7 @@ public class PlayerInfoManager : MonoBehaviour
 {
     public static string reg_id;
     public static string reg_pw;
+    public static float global_filterRatio=0;
 
     // 비번이 그냥 노출됨. ( 주의 )
     // 프로토타이핑이라 걍 대충 만듦

@@ -17,9 +17,8 @@ public class SettingPanelManager : MonoBehaviour
     public void UpdateFilterRatio()
     {
         float changedValue = transform.GetChild(2).GetComponent<Slider>().value;
-        CommentUIManger.myComment.filterRatio = changedValue;
+        PlayerInfoManager.global_filterRatio = changedValue;
         Debug.Log("필터 강도 변경: " + changedValue);
-        
     }
 
 

@@ -47,7 +47,7 @@ public class CommentUIManger : MonoBehaviour
 
     public void OnSettingBtnClicked()
     {
-        transform.GetChild(5).gameObject.SetActive(!transform.GetChild(5).gameObject.activeSelf);
+        transform.GetChild(6).gameObject.SetActive(!transform.GetChild(6).gameObject.activeSelf);
     }
 
     public void OnConfirmBtnClicked()
@@ -55,6 +55,7 @@ public class CommentUIManger : MonoBehaviour
         // get input value
         Debug.Log("Sending Comment: " + inputField.text);
         myComment.reply = inputField.text;
+
         // send input value
         StartCoroutine(FlaskUpload.instance.PostRequest(myComment));
         StartCoroutine(ChangeWhenRecieved());
@@ -74,17 +75,23 @@ public class CommentUIManger : MonoBehaviour
             statusText.text = "Filtering...";
             yield return new WaitForSeconds(0.5f);
         }
+
+        // 응답이 올 때까지 기다림
         yield return new WaitUntil(() => FlaskUpload.instance.isLoaded);
+
         hideGameObject.SetActive(false);
 
         if (FlaskUpload.instance.isToxic)
         {
-            statusText.text = "It is Toxic Comment.";
+            statusText.text = "It is Toxic Comment. Swearing Power: " + FlaskUpload.instance.swearingPower.ToString("F2");
         }
         else
         {
-            statusText.text = "It is not Toxic Comment.";
+            statusText.text = "It is not Toxic Comment. Swearing Power: " + FlaskUpload.instance.swearingPower.ToString("F2");
             inputField.text = "";
         }
+
+        ReplySpawner.instance.UpdateCommentInstanceRatio(FlaskUpload.instance.swearingPower);
+        ReplySpawner.instance.HideAndReviveReplyHigherThen();
     }
 }

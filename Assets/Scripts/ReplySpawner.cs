@@ -11,7 +11,6 @@ public class ReplySpawner : MonoBehaviour
     GameObject replyParent;
     public LayerMask cantSee;
     GameObject justSpawned;
-    int count = 0;
 
     void Awake()
     {
@@ -27,20 +26,41 @@ public class ReplySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SpawnReply("testtesttesttesttesttesttesttesttesttesttesttesttesttest");
-        }*/
+        
     }
 
     public void SpawnReply(string reply)
     {
-        count++;
-        
         justSpawned = Instantiate(replyTemplate,new Vector3(0,0,0), replyTemplate.transform.rotation, replyParent.transform);
         justSpawned.GetComponent<ReplyManager>().UpdateText(reply);
-
         justSpawned.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 1f);
+    }
+
+    public void HideAndReviveReplyHigherThen()
+    {
+        Debug.Log("필터링 재시도, 필터값: " + PlayerInfoManager.global_filterRatio);
+
+        float ratio = PlayerInfoManager.global_filterRatio;
+        Transform child;
+        for(int a=0; a< replyParent.transform.childCount; a++)
+        {
+            child = replyParent.transform.GetChild(a);
+            if (child.GetComponent<ReplyManager>().comment.filterRatio >= ratio)
+            {
+                //Debug.Log(child.GetComponent<ReplyManager>().comment.filterRatio);
+                child.gameObject.SetActive(false);
+            }
+            else
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
+
+        Debug.Log("필터링 끝");
+    }
+
+    public void UpdateCommentInstanceRatio(float ratio)
+    {
+        justSpawned.GetComponent<ReplyManager>().UpdateCommentFilterRatio(ratio);
     }
 }

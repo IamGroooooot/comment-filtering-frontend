@@ -9,20 +9,12 @@ public class FlaskUpload : MonoBehaviour
     public bool isLoaded = false;
     public bool isToxic = false;
 
+    public float swearingPower = 999.99f;
     void Awake()
     {
         instance = this;
     }
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-
-    }
 
     public IEnumerator PostRequest(Comment comment)
     {
@@ -45,8 +37,8 @@ public class FlaskUpload : MonoBehaviour
         }
         else
         {
-            Debug.Log("Form upload complete!, 결과: " + request.downloadHandler.text);
-            if(request.downloadHandler.text.Substring(0,1) == "0")                                                                       
+            Debug.Log("Form upload complete!, 결과: " + request.downloadHandler.text+", 크기: "+ request.downloadHandler.text.Length);
+            if(request.downloadHandler.text.Substring(0,1) == "0")
             {
                 isToxic = false;
             }
@@ -58,6 +50,11 @@ public class FlaskUpload : MonoBehaviour
             {// Error
                 Debug.Log("NETWORK ERROR");
             }
+
+            // Debug.Log(request.downloadHandler.text.Length - 2);
+            // swearingPower = System.Convert.ToSingle(request.downloadHandler.text.Substring(1, request.downloadHandler.text.Length-2));
+
+
             isLoaded = true;
         }
     }
