@@ -83,11 +83,14 @@ public class CommentUIManger : MonoBehaviour
 
         if (FlaskUpload.instance.isToxic)
         {
-            statusText.text = "It is Toxic Comment. Swearing Power: " + FlaskUpload.instance.swearingPower.ToString("F2");
+            statusText.text = "Toxic Comment. Swearing Power: " + (FlaskUpload.instance.swearingPower*100/3.6f).ToString("F2")+"%";
+            statusText.color = Color.red;
+            inputField.text = "";
         }
         else
         {
-            statusText.text = "It is not Toxic Comment. Swearing Power: " + FlaskUpload.instance.swearingPower.ToString("F2");
+            statusText.text = "Non-Toxic Comment. Swearing Power: " + (FlaskUpload.instance.swearingPower * 100 / 3.6f).ToString("F2")+"%";
+            statusText.color = Color.blue;
             inputField.text = "";
         }
 
